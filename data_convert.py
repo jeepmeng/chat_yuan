@@ -30,7 +30,7 @@ def convert_json_to_csv(source_file, target_file):
 
     # 3)写成pandas的dataframe，以csv进行保存
     df = pd.DataFrame({'input': input_list,
-                       'target':output_list,
+                       'target': output_list,
                        'answer_choices': answer_choices_list,
                        'type': type_list,
                        })
