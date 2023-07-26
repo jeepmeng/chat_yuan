@@ -1,3 +1,7 @@
+import json
+import pandas as pd
+
+
 def convert_json_to_csv(source_file, target_file):
     """将json文件转化为csv形式的文件。
        source_file:输入文件；
@@ -15,7 +19,7 @@ def convert_json_to_csv(source_file, target_file):
         json_string=json.loads(line.strip())
         input_=json_string["input"].replace("\n", "_")
         output_=json_string["target"]
-        answer_choices_=json_string.get("answer_choices",[])
+        answer_choices_=json_string.get("answer_choices", [])
         type_=json_string["type"]
         if i<10:print(i,"input:",input_,";output:",output_)
         # 2)添加到列表中
@@ -32,8 +36,10 @@ def convert_json_to_csv(source_file, target_file):
                        })
     df.to_csv(target_file,index=False)
 
-# 请运行以下三行代码进行格式换行，如果你需要全量数据训练。
-# 默认将只使用部分在线的示例数据进行训练。
-source_file='pCLUE_train.json'
-target_file='pCLUE_train.csv'
-convert_json_to_csv(source_file, target_file)
+
+if __name__ == "__main__":
+    # 请运行以下三行代码进行格式换行，如果你需要全量数据训练。
+    # 默认将只使用部分在线的示例数据进行训练。
+    source_file='clue_test.json'
+    target_file='pCLUE_train.csv'
+    convert_json_to_csv(source_file, target_file)
