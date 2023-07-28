@@ -1,6 +1,10 @@
 import json
 import pandas as pd
 
+from rich.table import Column, Table
+from rich import box
+from rich.console import Console
+
 
 def convert_json_to_csv(source_file, target_file):
     """将json文件转化为csv形式的文件。
@@ -35,6 +39,24 @@ def convert_json_to_csv(source_file, target_file):
                        'type': type_list,
                        })
     df.to_csv(target_file,index=False)
+
+
+def display_df(df):
+    """display dataframe in ASCII format"""
+
+    console = Console()
+    table = Table(
+        Column("source_text", justify="center"),
+        Column("target_text", justify="center"),
+        title="Sample Data",
+        pad_edge=False,
+        box=box.ASCII,
+    )
+
+    for i, row in enumerate(df.values.tolist()):
+        table.add_row(row[0], row[1])
+
+
 
 
 if __name__ == "__main__":

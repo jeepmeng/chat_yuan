@@ -1,3 +1,7 @@
+import torch
+from torch.utils.data import Dataset
+
+
 class YourDataSetClass(Dataset):
     """
     创建一个自定义的数据集，用于训练，必须包括两个字段：输入(如source_text)、输出（如target_text）
