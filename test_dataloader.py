@@ -5,7 +5,7 @@ from torch.utils.data import Dataset, DataLoader, RandomSampler, SequentialSampl
 import torch
 
 
-device = 'cuda' if cuda.is_available() else 'cpu'
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 model_params = {
     "MODEL": "ClueAI/ChatYuan-large-v1",  # model_type
