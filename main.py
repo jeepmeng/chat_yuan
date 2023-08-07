@@ -23,13 +23,13 @@ model_params = {
     "SEED": 42,  # set seed for reproducibility
 }
 print("end...")
-
+path = 'pCLUE_train_2.csv'
 # 训练模型
 # 使用 pCLUE:1200000+多任务提示学习数据集 的部分数据
 # dataframe必须有2列:
 #   - input: 文本输入
 #   - target: 目标输出
-df = pd.read_csv('/content/pCLUE_train.csv')  # 数据量：1200k数据。
+df = pd.read_csv(path)  # 数据量：1200k数据。
 df = df.sample(frac=0.01) # TODO  取消本行代码，如果你需要更多数据训练
 print("df.head:",df.head(n=5))
 print("df.shape:",df.shape)

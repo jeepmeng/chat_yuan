@@ -17,7 +17,7 @@ def convert_json_to_csv(source_file, target_file):
     output_list=[]
     answer_choices_list=[]
     type_list=[]
-    for i, line in enumerate(lines[:10]):
+    for i, line in enumerate(lines[:100]):
         # {"input": "以下内容为真：“滁县地区专员张友道说:大都架到高处了”那么下面的陈述：“张友道对身边的官员说了话。”是真的,假的,或未知？\n答案：", "target": "未知", "answer_choices": ["真的", "假的", "未知"], "type": "nli"}
         # 1)获得字段值
         json_string=json.loads(line.strip())
@@ -68,5 +68,5 @@ if __name__ == "__main__":
     source_file = path
     # target_file = out_path
     # source_file='clue_test.json'
-    target_file='pCLUE_train.csv'
+    target_file='pCLUE_train_2.csv'
     convert_json_to_csv(source_file, target_file)
